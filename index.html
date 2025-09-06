@@ -20,6 +20,204 @@
             color: #ffffff;
         }
 
+        /* Notification Banner */
+        .notification-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #00d4ff);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            color: #000;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 10000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-banner .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .notification-banner.hidden {
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        /* Prize Notification Box */
+        .prize-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            z-index: 9999;
+            max-width: 300px;
+            animation: slideInRight 1s ease-out, pulse 2s ease-in-out 2s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .prize-notification h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .prize-list {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #fff;
+        }
+
+        .prize-notification .close-prize {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 107, 107, 0.15));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .countdown-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #00d4ff;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(0, 212, 255, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px 15px;
+            min-width: 80px;
+            backdrop-filter: blur(10px);
+        }
+
+        .time-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            display: block;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            color: #cccccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Event Status Popup */
+        .event-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 3px solid #00d4ff;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            z-index: 10001;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            max-width: 500px;
+            width: 90%;
+            animation: popupShow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .event-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .popup-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #00d4ff;
+        }
+
+        .popup-message {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .popup-close {
+            background: linear-gradient(45deg, #ff6b6b, #00d4ff);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .popup-close:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
         /* Animated Background */
         .bg-animation {
             position: fixed;
@@ -66,10 +264,19 @@
             100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
         }
 
+        @keyframes popupShow {
+            0% { transform: translate(-50%, -50%) scale(0) rotate(180deg); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         /* Header */
         header {
             position: fixed;
-            top: 0;
+            top: 60px;
             width: 100%;
             padding: 20px 5%;
             background: rgba(10, 10, 10, 0.95);
@@ -113,13 +320,14 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: 150vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding-top: 120px;
         }
 
         .hero-content {
@@ -471,12 +679,35 @@
             .levels-grid { grid-template-columns: 1fr; }
             .details-grid { grid-template-columns: 1fr; gap: 20px; }
             .benefits-grid { grid-template-columns: 1fr; }
+            .countdown-timer { gap: 10px; }
+            .time-unit { min-width: 60px; padding: 15px 10px; }
+            .time-number { font-size: 2rem; }
+            .prize-notification { right: 20px; bottom: 20px; max-width: 250px; }
+            .notification-banner { font-size: 1rem; padding: 10px 15px; }
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
     <div class="particles" id="particles"></div>
+
+    <!-- Notification Banner -->
+    <div class="notification-banner" id="notificationBanner">
+        🚀 REGISTRATION IS NOW OPEN! 🏆 Win Amazing Cash Prizes up to ₹3000! 
+        <button class="close-btn" onclick="closeBanner()">&times;</button>
+    </div>
+
+    <!-- Prize Notification -->
+    <div class="prize-notification" id="prizeNotification">
+        <button class="close-prize" onclick="closePrizeNotification()">&times;</button>
+        <h3>💰 CASH PRIZES!</h3>
+        <div class="prize-list">
+            🥇 1st Place: ₹3,000<br>
+            🥈 2nd Place: ₹2,000<br>
+            🥉 3rd Place: ₹1,000<br>
+            + Certificates for All!
+        </div>
+    </div>
 
     <header>
         <nav>
@@ -497,12 +728,36 @@
             <div class="floating-icon">🚀</div>
             <div class="floating-icon">🎯</div>
             
-            <div class="hero-content">
+            <div class="hero-content"><br>
                 <h1>TRICODE ARENA 2K25</h1>
                 <p class="subtitle">THE ULTIMATE 3-LEVEL CODING SHOWDOWN</p>
                 <p class="description">
                     Step into the world of programming excellence! For the first time, our students have designed and developed a fully secured coding platform. This isn't just another contest—it's a revolution in competitive programming.
                 </p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <h3 class="countdown-title">⏰ EVENT STARTS IN</h3>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="time-unit">
+                            <span class="time-number" id="days">00</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="hours">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="minutes">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="seconds">00</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <a href="#register" class="cta-button">🚀 Join the Revolution</a>
             </div>
         </section>
@@ -550,52 +805,52 @@
                 <div class="detail-card">
                     <div class="detail-icon">👥</div>
                     <h3 class="detail-title">Eligibility</h3>
-                    <p class="detail-text">Open to all<br>Coding Enthusiasts</p>
+                    <p class="detail-text">All Students<br>(Any Branch, Any Year)</p>
                 </div>
                 <div class="detail-card">
-                    <div class="detail-icon">🏆</div>
-                    <h3 class="detail-title">Prizes</h3>
-                    <p class="detail-text">Trophies & Merit Certificates<br>for Winners</p>
+                    <div class="detail-icon">⏱️</div>
+                    <h3 class="detail-title">Duration</h3>
+                    <p class="detail-text">Full Day Event<br>Multiple Rounds</p>
                 </div>
                 <div class="detail-card">
-                    <div class="detail-icon">📜</div>
-                    <h3 class="detail-title">Certificates</h3>
-                    <p class="detail-text">Participation Certificates<br>for All</p>
+                    <div class="detail-icon">💻</div>
+                    <h3 class="detail-title">Platform</h3>
+                    <p class="detail-text">Custom Built<br>Secure & Fast</p>
                 </div>
                 <div class="detail-card">
-                    <div class="detail-icon">📞</div>
-                    <h3 class="detail-title">Contact</h3>
-                    <p class="detail-text">7993417685<br>For Queries</p>
+                    <div class="detail-icon">🎯</div>
+                    <h3 class="detail-title">Languages</h3>
+                    <p class="detail-text">C, C++, Java, Python<br>JavaScript & More</p>
                 </div>
             </div>
         </section>
 
-        <section class="why-join">
-            <h2 class="section-title">WHY JOIN THE REVOLUTION?</h2>
+        <section class="why-join" id="why-join">
+            <h2 class="section-title">WHY JOIN TRICODE ARENA?</h2>
             <div class="benefits-grid">
                 <div class="benefit-item">
-                    <div class="benefit-icon">💡</div>
-                    <div class="benefit-text">Showcase your coding skills on a student-made secure platform</div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🎯</div>
-                    <div class="benefit-text">Learn, compete, and grow with passionate peers</div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🌟</div>
-                    <div class="benefit-text">Gain hands-on experience in real coding environments</div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🤝</div>
-                    <div class="benefit-text">Exclusive recognition & networking opportunities</div>
+                    <div class="benefit-icon">🏆</div>
+                    <div class="benefit-text">Win amazing cash prizes up to ₹3,000</div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">🚀</div>
-                    <div class="benefit-text">Be part of a historic, first-of-its-kind coding revolution</div>
+                    <div class="benefit-text">Experience our revolutionary coding platform</div>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon">🔒</div>
-                    <div class="benefit-text">Experience our innovative, fully secured contest platform</div>
+                    <div class="benefit-icon">🎓</div>
+                    <div class="benefit-text">Enhance your programming skills</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🤝</div>
+                    <div class="benefit-text">Network with fellow coders</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📜</div>
+                    <div class="benefit-text">Get certificates of participation</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">Challenge yourself with real problems</div>
                 </div>
             </div>
         </section>
@@ -604,43 +859,102 @@
     <footer id="register">
         <div class="register-section">
             <h2 class="section-title">READY TO CODE?</h2>
-            <p style="color: #cccccc; margin-bottom: 30px; font-size: 1.2rem;">
-                Registration is now open! Don't miss your chance to be part of this coding revolution.
+            <p style="color: #cccccc; font-size: 1.2rem; margin-bottom: 30px;">
+                Join hundreds of programmers in this epic coding battle!
             </p>
-            <a href="https://forms.gle/KnzrnUcwFAErs12X9" target="_blank" class="register-button">
-                🎯 REGISTER NOW
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSccj2-jjKcpKT4jBUTWDfO446oBJt2Gx4Dy3-Gd4Qtbm24RtA/viewform?usp=header" class="register-button" id="registerBtn">
+                🎯 REGISTER NOW 
             </a>
         </div>
-        
+
         <div class="contact-info">
-            <p><strong>Contact:</strong> 7993417685</p>
-            <p><strong>Event Date:</strong> 12th September 2025, 9:00 AM</p>
-            <p><strong>Venue:</strong> SREC, Seminar Hall</p>
+            <h3 style="color: #00d4ff; margin-bottom: 15px;">📞 CONTACT US</h3>
+            <p>For queries: <strong style="color: #ff6b6b;">coding@srec.ac.in</strong></p>
+            <p>Phone: <strong style="color: #ff6b6b;">+91 7993417685</strong></p>
         </div>
-        
+
         <div class="organizers">
-            <p>Organized by <strong>Department of CSE-AIML</strong> in Collaboration with <strong>ESCORT TECH HUB</strong></p>
-            <p style="margin-top: 15px; font-style: italic;">"Empowering Tech, Inspiring Innovation."</p>
+            <p><strong>Organized by:</strong> ESCORT TECH HUB</p>
+            <p><strong>Powered by:</strong> Student Innovation Team</p>
+            <p style="margin-top: 20px; color: #666;">&copy; 2025 ESCORT TECH HUB. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Event Status Popup -->
+    <div class="popup-overlay" id="popupOverlay" style="display: none;">
+        <div class="event-popup" id="eventPopup">
+            <h2 class="popup-title" id="popupTitle">🚀 EVENT STATUS</h2>
+            <p class="popup-message" id="popupMessage">
+                Registration is now open! Don't miss your chance to compete in the ultimate coding showdown.
+            </p>
+            <button class="popup-close" onclick="closePopup()">Got It!</button>
+        </div>
+    </div>
+
     <script>
-        // Create floating particles
+        // Particle System
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
+            
+            for (let i = 0; i < 100; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 6 + 's';
                 particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
                 particlesContainer.appendChild(particle);
             }
         }
 
-        // Smooth scrolling for navigation links
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-09-12T09:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div style="color: #ff6b6b; font-size: 2rem;">🎉 EVENT IS LIVE! 🎉</div>';
+                showEventPopup('🔥 EVENT IS LIVE!', 'TriCode Arena 2K25 has started! Join now and show your coding skills!');
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Event Status Popup
+        function showEventPopup(title, message) {
+            document.getElementById('popupTitle').textContent = title;
+            document.getElementById('popupMessage').textContent = message;
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('eventPopup').classList.add('show');
+        }
+
+        function closePopup() {
+            document.getElementById('eventPopup').classList.remove('show');
+            setTimeout(() => {
+                document.getElementById('popupOverlay').style.display = 'none';
+            }, 300);
+        }
+
+        // Close Banner
+        function closeBanner() {
+            document.getElementById('notificationBanner').classList.add('hidden');
+        }
+
+        // Close Prize Notification
+        function closePrizeNotification() {
+            document.getElementById('prizeNotification').style.display = 'none';
+        }
+
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -654,53 +968,134 @@
             });
         });
 
-        // Add scroll animations
-        function addScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 1s ease-out';
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
+        // Registration Button Enhancement
+        document.getElementById('registerBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            showEventPopup(
+                '🎯 REGISTRATION',
+                'You will be redirected to the registration form. Make sure to fill all details correctly!'
+            );
+            
+            // Redirect after popup closes
+            setTimeout(() => {
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLSccj2-jjKcpKT4jBUTWDfO446oBJt2Gx4Dy3-Gd4Qtbm24RtA/viewform?usp=header', '_blank');
+                closePopup();
+            }, 2000);
+        });
 
-            document.querySelectorAll('.level-card, .detail-card, .benefit-item').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px)';
-                observer.observe(card);
-            });
-        }
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+            }
+        });
 
-        // Add hover effects to cards
-        function addHoverEffects() {
-            document.querySelectorAll('.level-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-15px) rotateX(5deg) rotateY(2deg)';
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
-                });
+        // Card Hover Effects
+        document.querySelectorAll('.level-card, .detail-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
             });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic Text Animation
+        function animateText() {
+            const title = document.querySelector('.hero h1');
+            const text = title.textContent;
+            title.textContent = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(() => {
+                    title.textContent += text[i];
+                }, i * 100);
+            }
         }
 
         // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             createParticles();
-            addScrollAnimations();
-            addHoverEffects();
+            updateCountdown();
+            
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            
+            // Show welcome popup after 2 seconds
+            setTimeout(() => {
+                showEventPopup(
+                    '🎉 Welcome to TriCode Arena 2K25!',
+                    'Get ready for the ultimate coding experience! Registration is open - secure your spot now!'
+                );
+            }, 2000);
+
+            // Auto-hide prize notification after 10 seconds
+            setTimeout(() => {
+                const prizeNotif = document.getElementById('prizeNotification');
+                if (prizeNotif.style.display !== 'none') {
+                    prizeNotif.style.opacity = '0';
+                    prizeNotif.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        prizeNotif.style.display = 'none';
+                    }, 500);
+                }
+            }, 10000);
+
+            // Add animation delays to benefit items
+            document.querySelectorAll('.benefit-item').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+            });
         });
 
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        // Add special effects on key events
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                document.body.style.animation = 'none';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 10);
+            }
+        });
+
+        // Mobile Menu Toggle (if needed)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Performance optimization - throttle scroll events
+        let ticking = false;
+        function updateOnScroll() {
+            // Header background update logic here
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
             }
         });
     </script>
+    <footer style="background: #1f2937; color: white; padding: 20px 10px; text-align: center; font-family: 'Segoe UI', sans-serif; font-size: 14px;">
+  <div style="margin-bottom: 5px;">
+    Developed by <strong>Shaik Lalu Basha</strong> | 📞 <a href="tel:+91 7993417685" style="color: #60a5fa; text-decoration: none;">+91 7993417685</a>
+  </div>
 </body>
 </html>
